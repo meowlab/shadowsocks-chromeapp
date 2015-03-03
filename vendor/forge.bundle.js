@@ -3878,7 +3878,7 @@ modes.cfb.prototype.encrypt = function(input, output) {
   if (this._cursor === this.blockSize) {
     this._cursor = 0;
     this.cipher.encrypt(this._inBlock, this._outBlock);
-    this._inBlock = [0, 0, 0, 0];
+    this._inBlock.length = 0;
   }
 
   // XOR input with output, write input as output
@@ -3896,7 +3896,7 @@ modes.cfb.prototype.decrypt = function(input, output) {
   if (this._cursor === this.blockSize) {
     this._cursor = 0;
     this.cipher.encrypt(this._inBlock, this._outBlock);
-    this._inBlock = [0, 0, 0, 0];
+    this._inBlock.length = 0;
   }
 
   // XOR input with output
